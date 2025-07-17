@@ -8,6 +8,13 @@
       "when": 1752183780772,
       "tag": "0000_supreme_silver_centurion",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752710579303,
+      "tag": "0001_daffy_black_knight",
+      "breakpoints": true
     }
   ]
 }
