@@ -1,5 +1,5 @@
 import { reset, seed } from "drizzle-seed";
-import { db } from "./connection.ts";
+import { db, sql } from "./connection.ts";
 import { schema } from "./schema/index.ts";
 
 await reset(db, schema);
@@ -10,7 +10,7 @@ await seed(db, schema).refine((f) => {
       count: 5,
       columns: {
         name: f.companyName(),
-        descriptin: f.loremIpsum(),
+        description: f.loremIpsum(),
       },
     },
     questions: {
@@ -18,3 +18,5 @@ await seed(db, schema).refine((f) => {
     },
   };
 });
+
+await sql.end();
