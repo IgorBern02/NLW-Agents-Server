@@ -85,3 +85,10 @@ export async function generateAnswer(
 
   return response.text;
 }
+
+export async function askQuestion(
+  question: string,
+  transcriptions: string[]
+): Promise<string> {
+  return generateAnswer(question, transcriptions);
+}
