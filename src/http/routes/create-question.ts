@@ -2,11 +2,7 @@ import type { FastifyPluginCallbackZod } from "fastify-type-provider-zod";
 import { schema } from "../../db/schema/index.ts";
 import { db } from "../../db/connection.ts";
 import { z } from "zod/v4";
-import {
-  generateAnswer,
-  generateEmbeddings,
-  transcribeAudio,
-} from "../../services/gemini.ts";
+import { generateAnswer, generateEmbeddings } from "../../services/gemini.ts";
 import { and, eq, sql } from "drizzle-orm";
 
 export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
@@ -44,7 +40,7 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
           )
         )
         .orderBy(
-          sql`(${schema.audioChunks.embeddings} <=> ${embeddingsAsString}::vector`
+          sql`(${schema.audioChunks.embeddings} <=> ${embeddingsAsString}::vector)`
         )
         .limit(3);
 
